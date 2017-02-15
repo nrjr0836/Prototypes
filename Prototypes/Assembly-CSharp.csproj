@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Apperance.cs" />
      <Compile Include="Assets\Script\Draggable.cs" />
      <Compile Include="Assets\Script\Dropable.cs" />
      <Compile Include="Assets\TouchScript\Examples\Camera\Scripts\CameraController.cs" />
