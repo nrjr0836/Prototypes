@@ -1,9 +1,9 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{6C3A8D04-5319-BD3D-9B90-611DA2BAC229}") = "Prototypes", "Assembly-CSharp.csproj", "{E1BDFC5C-733F-834B-5059-169A40822B99}"
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototypes", "Assembly-CSharp.csproj", "{E1BDFC5C-733F-834B-5059-169A40822B99}"
 EndProject
-Project("{6C3A8D04-5319-BD3D-9B90-611DA2BAC229}") = "Prototypes", "Assembly-CSharp-Editor.csproj", "{7AC0D713-FD94-4D8F-2065-75FF206AFD2A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototypes", "Assembly-CSharp-Editor.csproj", "{7AC0D713-FD94-4D8F-2065-75FF206AFD2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
