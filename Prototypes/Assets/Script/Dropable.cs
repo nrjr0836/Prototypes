@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 
-public class Dropable : MonoBehaviour {
+public class Dropable : MonoBehaviour, IDropHandler {
 
-	// Use this for initialization
-	void Start () {
-	
+	public void OnDrop(PointerEventData eventData){
+		Draggable d = eventData.pointerDrag.GetComponent<Draggable> ();
+		if (d != null) {
+			d.parentToReturnTo = this.transform;
+		}
+
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 }
