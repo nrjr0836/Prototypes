@@ -1,22 +1,18 @@
-﻿using System;
-using TouchScript.Gestures;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.EventSystems;
 
-public class DoorOpen : MonoBehaviour {
 
-	private TapGesture tapGesture;
-	private void OnEnable()
-	{
-		GetComponent<TapGesture>().Tapped += tappedHandler;
+
+public class DoorOpen : MonoBehaviour, IPointerClickHandler{
+	public string name;
+	public void OnPointerClick(PointerEventData eventData) {
+		clicked();
 	}
 
-	private void OnDisable()
-	{
-		GetComponent<TapGesture>().Tapped -= tappedHandler;
-	}
-
-	private void tappedHandler(object sender, EventArgs e)
-	{
-		print("adfasdfasdfasdfasdf");
+	private void clicked() {
+		for (int i = 0; i <= this.transform.GetSiblingIndex(); i++) {
+			print (this.transform.parent.GetChild (i).GetInstanceID());
+		}
 	}
 }

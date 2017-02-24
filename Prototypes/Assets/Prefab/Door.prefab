@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114000012619462982}
   - component: {fileID: 114000010890138328}
   - component: {fileID: 225000010908983240}
+  - component: {fileID: 61225122186933314}
   m_Layer: 5
   m_Name: Door
   m_TagString: Untagged
@@ -48,6 +49,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!61 &61225122186933314
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012736162566}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 125, y: 200}
 --- !u!114 &114000010890138328
 MonoBehaviour:
   m_ObjectHideFlags: 1
