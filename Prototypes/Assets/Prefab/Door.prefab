@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 225000010908983240}
   - component: {fileID: 114081557165686548}
   - component: {fileID: 114162605138325152}
+  - component: {fileID: 61225122186933314}
   m_Layer: 5
   m_Name: Door
   m_TagString: Untagged
@@ -52,7 +53,7 @@ GameObject:
   m_IsActive: 1
 --- !u!61 &61225122186933314
 BoxCollider2D:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012736162566}
@@ -165,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 452140b134ab640c988843d1edde49f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  name: 
 --- !u!114 &114162605138325152
 MonoBehaviour:
   m_ObjectHideFlags: 1
