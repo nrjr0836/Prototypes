@@ -30,11 +30,15 @@ public class DoorDragged : MonoBehaviour
 
 	private void transformStartedHandler(object sender, EventArgs e)
 	{
-		placeholder = new GameObject ();
-		placeholder.transform.SetParent (this.transform.parent);
+//		placeholder = new GameObject ();
+		placeholder = Instantiate (this.gameObject, this.transform.parent);
+		Color temp = placeholder.GetComponent<Image> ().color;
+		temp.a = 0f;
+		placeholder.GetComponent<Image> ().color = temp;
+//		placeholder.transform.SetParent (this.transform.parent);
 //		LayoutElement le = placeholder.AddComponent<LayoutElement> ();
-//		le.preferredWidth = this.GetComponent<LayoutElement> ().preferredWidth;
-//		le.preferredHeight = this.GetComponent<LayoutElement> ().preferredHeight;
+//		le.preferredWidth = this.GetComponent<RectTransform> ().rect.x;
+//		le.preferredHeight = this.GetComponent<RectTransform> ().rect.y;
 //		le.flexibleWidth = 0;
 //		le.flexibleHeight = 0;
 
@@ -43,7 +47,7 @@ public class DoorDragged : MonoBehaviour
 		parentToReturnTo = this.transform.parent;
 		transform.SetParent (this.transform.parent.parent);
 
-		GetComponent<CanvasGroup> ().blocksRaycasts = false;
+//		GetComponent<CanvasGroup> ().blocksRaycasts = false;
 	}
 
 	private void transformedHandler(object sender, EventArgs e)
@@ -68,7 +72,7 @@ public class DoorDragged : MonoBehaviour
 	{
 		transform.SetParent(parentToReturnTo);
 		transform.SetSiblingIndex(placeholder.transform.GetSiblingIndex());
-		GetComponent<CanvasGroup> ().blocksRaycasts = true;
+//		GetComponent<CanvasGroup> ().blocksRaycasts = true;
 		Destroy (placeholder);
 	}
 }
