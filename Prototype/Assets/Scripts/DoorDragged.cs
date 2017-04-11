@@ -30,32 +30,27 @@ public class DoorDragged : MonoBehaviour
 
 	private void transformStartedHandler(object sender, EventArgs e)
 	{
-//		placeholder = new GameObject ();
+		if (!(GameManager.instance.getCurrentState().Equals(StateMachine.GameState.DoorReordering)))
+			return;
 		placeholder = Instantiate (this.gameObject, this.transform.parent);
 		Color temp = placeholder.GetComponent<Image> ().color;
 		temp.a = 0f;
 		placeholder.GetComponent<Image> ().color = temp;
-//		placeholder.transform.SetParent (this.transform.parent);
-//		LayoutElement le = placeholder.AddComponent<LayoutElement> ();
-//		le.preferredWidth = this.GetComponent<RectTransform> ().rect.x;
-//		le.preferredHeight = this.GetComponent<RectTransform> ().rect.y;
-//		le.flexibleWidth = 0;
-//		le.flexibleHeight = 0;
 
 		placeholder.transform.SetSiblingIndex (this.transform.GetSiblingIndex ());
 
 		parentToReturnTo = this.transform.parent;
 		transform.SetParent (this.transform.parent.parent);
+//		GetComponent<CanvasGroup> ().blocksRaycasts = true;
 
-//		GetComponent<CanvasGroup> ().blocksRaycasts = false;
 	}
 
 	private void transformedHandler(object sender, EventArgs e)
 	{
+		if (!(GameManager.instance.getCurrentState().Equals(StateMachine.GameState.DoorReordering)))
+			return;
 		var gesture = sender as ITransformGesture;
 		gesture.ApplyTransform(cachedTransform);
-//		print (transform.position);
-//		this.transform.position = eventData.position;
 		int newSiblingIndex = parentToReturnTo.childCount;
 
 		for (int i = 0; i<parentToReturnTo.childCount; i++){
@@ -67,12 +62,16 @@ public class DoorDragged : MonoBehaviour
 			}
 		}
 		placeholder.transform.SetSiblingIndex(newSiblingIndex);
+
 	}
 	private void transformCompletedHandler(object sender, EventArgs e)
 	{
+		if (!(GameManager.instance.getCurrentState().Equals(StateMachine.GameState.DoorReordering)))
+			return;
 		transform.SetParent(parentToReturnTo);
 		transform.SetSiblingIndex(placeholder.transform.GetSiblingIndex());
-//		GetComponent<CanvasGroup> ().blocksRaycasts = true;
+		GameManager.instance.act(StateMachine.GameInput.LongPressRelease);
 		Destroy (placeholder);
+		this.transform.parent.parent.GetComponent<Image> ().raycastTarget = true;
 	}
 }

@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
 
 	public static GameManager instance = null;              //Static instance of GameManager which allows it to be accessed by any other script.
+	public StateMachine.GameState initState;
+	private StateMachine stateMachine;
 
 	//Awake is always called before any Start functions
 	void Awake()
@@ -26,6 +28,8 @@ public class GameManager : MonoBehaviour
 		//Sets this to not be destroyed when reloading scene
 		DontDestroyOnLoad(gameObject);
 
+		stateMachine = GetComponent<StateMachine>();
+
 		//Call the InitGame function to initialize the first level 
 		InitGame();
 	}
@@ -33,13 +37,17 @@ public class GameManager : MonoBehaviour
 	//Initializes the game for each level.
 	void InitGame()
 	{
+		stateMachine.init(initState);
+	}
+		
+
+	public StateMachine.GameState getCurrentState()
+	{
+		return stateMachine.getCurrentState();
 	}
 
-
-
-	//Update is called every frame.
-	void Update()
+	public void act(StateMachine.GameInput input)
 	{
-		
+		stateMachine.transit (input);
 	}
 }
