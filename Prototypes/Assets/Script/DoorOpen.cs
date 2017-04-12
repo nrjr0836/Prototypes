@@ -19,7 +19,7 @@ public class DoorOpen : MonoBehaviour, IPointerClickHandler{
 			print (this.transform.parent.GetChild (i).GetInstanceID());
 		}
 		int idx = this.transform.GetSiblingIndex ();
-		if (idx > 0 && this.transform.parent.GetChild (idx - 1).transform.GetComponent<DoorOpen>().name.Equals("3")) {
+		if (idx > 0 && this.transform.parent.GetChild (idx - 1).transform.GetComponent<DoorOpen>().name.Equals("5")) {
 			DisableDoors.SetActive (false);
 			EnableDoors.SetActive (true);
 		}
