@@ -21,8 +21,10 @@ public class DoorOpen : MonoBehaviour, IPointerClickHandler{
 		int idx = this.transform.GetSiblingIndex ();
 		DisableDoors.SetActive (false);
 		EnableDoors.SetActive (true);
-		if (idx > 0 && this.transform.parent.GetChild (idx - 1).transform.GetComponent<DoorOpen>().name.Equals("5")) {
+		if (idx > 0 && this.transform.parent.GetChild (idx - 1).transform.GetComponent<DoorOpen> ().name.Equals ("5")) {
 			EnableDoors.transform.GetChild (0).transform.GetChild (3).gameObject.SetActive (true);
+		} else {
+			EnableDoors.transform.GetChild (0).transform.GetChild (3).gameObject.SetActive (false);
 		}
 	}
 }
