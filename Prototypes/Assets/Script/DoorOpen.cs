@@ -8,6 +8,7 @@ public class DoorOpen : MonoBehaviour, IPointerClickHandler{
 	public string name;
 	public GameObject DisableDoors;
 	public GameObject EnableDoors;
+	public GameObject EnableTheme;
 
 
 	public void OnPointerClick(PointerEventData eventData) {
@@ -19,11 +20,16 @@ public class DoorOpen : MonoBehaviour, IPointerClickHandler{
 			print (this.transform.parent.GetChild (i).GetInstanceID());
 		}
 		int idx = this.transform.GetSiblingIndex ();
-		DisableDoors.SetActive (false);
-		EnableDoors.SetActive (true);
+		if (EnableTheme == null) {
+			DisableDoors.SetActive (false);
+			EnableDoors.SetActive (true);
+		} else {
+			DisableDoors.SetActive (false);
+			EnableTheme.SetActive (true);
+		}
 		if (idx > 0 && this.transform.parent.GetChild (idx - 1).transform.GetComponent<DoorOpen> ().name.Equals ("5")) {
 			EnableDoors.transform.GetChild (0).transform.GetChild (3).gameObject.SetActive (true);
-		} else {
+		} else if (this.GetComponent<DoorOpen>().name.Equals("1")){
 			EnableDoors.transform.GetChild (0).transform.GetChild (3).gameObject.SetActive (false);
 		}
 	}

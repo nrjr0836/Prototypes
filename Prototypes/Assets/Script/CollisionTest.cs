@@ -5,6 +5,8 @@ using UnityEngine;
 public class CollisionTest : MonoBehaviour {
 
 	public GameObject otherObject;
+	public GameObject before;
+	public GameObject after;
 	Animator otherAnimator;
 
 	// Use this for initialization
@@ -22,6 +24,8 @@ public class CollisionTest : MonoBehaviour {
 		if(col.gameObject.tag == "Col")
 		{
 			otherAnimator.SetBool ("Personstand", true);
+			before.SetActive (false);
+			after.SetActive (true);
 			Destroy(gameObject);
 		}
 	}
