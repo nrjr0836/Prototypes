@@ -7,9 +7,9 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scene/_DragAndReleaseTest.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scene/_NonInteractiveStart.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scene/_Prototype_1.unity
   - enabled: 0
     path: Assets/Scene/_DoorOne.unity
