@@ -7,7 +7,7 @@ PlayerSettings:
   productGUID: 749d1877787804e3381ca45a1eaa2fd4
   AndroidProfiler: 0
   defaultScreenOrientation: 4
-  targetDevice: 1
+  targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Xiaoliang Shen
